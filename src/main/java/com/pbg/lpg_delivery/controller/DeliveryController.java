@@ -67,7 +67,7 @@ public class DeliveryController {
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Order marked as delivered successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid order ID"),
-            @ApiResponse(responseCode = "403", description = "User is not authorized to perform this action"),
+            @ApiResponse(responseCode = "403", description = "User is not authorized to perform this actions"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PutMapping("/{orderId}/mark-delivered")
@@ -90,6 +90,8 @@ public class DeliveryController {
 
     @PreAuthorize("hasRole('DELIVERY_PERSON')")
     @GetMapping
+    @ApiResponse(responseCode = "200", description = "Retrieved all the  orders assigned")
+    @ApiResponse(responseCode = "201", description = "Unauthroized person")
     public ResponseEntity<ResponseWrapper<List<OrderDetails>>> getAllAssignedOrder(){
         try {
             List<OrderDetails> orderDetailsList = deliveryService.getAllAssignedOrders();
