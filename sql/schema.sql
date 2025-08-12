@@ -93,3 +93,24 @@ CREATE TABLE `deliveries` (
   CONSTRAINT `FK7isx0rnbgqr1dcofd5putl6jw` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
   CONSTRAINT `FKj83vua77cbq1e1u1dwo1fuwlh` FOREIGN KEY (`delivery_person_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `dealer` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `authorized` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `dealer_address` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `pincode` varchar(20) NOT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `state` varchar(100) DEFAULT NULL,
+  `dealer_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `dealer_id` (`dealer_id`),
+  CONSTRAINT `fk_dealer_address_dealer` FOREIGN KEY (`dealer_id`) REFERENCES `dealer` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
