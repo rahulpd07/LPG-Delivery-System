@@ -34,3 +34,16 @@ INSERT INTO `feedbacks` (`comments`, `created_at`, `rating`, `order_id`, `user_i
 VALUES
 ('Very satisfied with the service. Will order again!', NOW(), 5, 1, 1);
 
+-- Insert dealers
+INSERT INTO dealer (name, company_name, authorized)
+VALUES
+('Ravi Kumar', 'HP Gas', TRUE),
+('Anil Sharma', 'Bharat Gas', TRUE),
+('Suresh Mehta', 'Indane', FALSE);
+
+-- Insert dealer addresses (linked to dealer_id)
+INSERT INTO dealer_address (pincode, street, city, state, dealer_id)
+VALUES
+('110001', 'Main Street 12', 'New Delhi', 'Delhi', 1),
+('400001', 'Marine Drive 5', 'Mumbai', 'Maharashtra', 2),
+('560001', 'MG Road 45', 'Bangalore', 'Karnataka', 3);
