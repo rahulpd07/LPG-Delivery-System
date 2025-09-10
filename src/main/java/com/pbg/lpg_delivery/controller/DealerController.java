@@ -5,6 +5,8 @@ import com.pbg.lpg_delivery.exceptionHandler.LpgException;
 import com.pbg.lpg_delivery.exceptionHandler.ParentException;
 import com.pbg.lpg_delivery.model.responses.Dealer;
 import com.pbg.lpg_delivery.service.DealerService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/dealers")
+@Tag(name = "LPG Dealer Search", description = "APIs for finding LPG dealers using pincode or company name")
 public class DealerController {
 
     private final DealerService dealerService;
@@ -28,6 +31,7 @@ public class DealerController {
     }
 
     @GetMapping("/search")
+    @Operation(summary = "Search dealers by pincode or company name or both")
     public ResponseEntity<ResponseWrapper<List<Dealer>>> searchDealers(
             @RequestParam(required = false) String pincode,
             @RequestParam(required = false) String companyName) {

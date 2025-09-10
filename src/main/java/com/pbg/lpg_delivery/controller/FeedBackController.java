@@ -17,7 +17,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("v1/feedback")
+@RequestMapping("/v1/feedback")
 @Tag(name = "Feedback Management", description = "APIs for submitting customer feedback on orders")
 public class FeedBackController {
 

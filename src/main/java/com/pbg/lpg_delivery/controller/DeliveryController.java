@@ -89,6 +89,7 @@ public class DeliveryController {
     }
 
     @PreAuthorize("hasRole('DELIVERY_PERSON')")
+    @Operation(summary = "Retrieve all the assigned orders to delivery person")
     @GetMapping
     @ApiResponse(responseCode = "200", description = "Retrieved all the  orders assigned")
     @ApiResponse(responseCode = "201", description = "Unauthroized person")

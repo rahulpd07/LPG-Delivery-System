@@ -18,7 +18,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/v1/auth")
 @Tag(name = "Authentication", description = "APIs for user authentication and management")
 public class AuthController {
 

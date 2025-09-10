@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/orders")
+@RequestMapping("/v1/orders")
 @Tag(name = "Order Management", description = "APIs for managing customer orders")
 public class OrderController {
 

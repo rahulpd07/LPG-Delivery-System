@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/stocks")
+@RequestMapping("/v1/stocks")
 @Tag(name = "LPG Cylinder Stock Management", description = "APIs for managing LPG cylinder stocks")
 public class LpgCylinderController {
 
